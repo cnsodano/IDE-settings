@@ -114,6 +114,18 @@
     "debug.internalConsoleOptions": "neverOpen",
     "debug.openDebug": "neverOpen",
     //***************APPEARANCE***********************//
+    "peacock.affectWindowBorder": true,
+    "peacock.affectStatusBar": false,
+    "peacock.affectActivityBar": false,
+    "peacock.affectDebuggingStatusBar": false,
+    "peacock.affectTitleBar": true,
+    "peacock.affectEditorGroupBorder": false,
+    "peacock.affectPanelBorder": true,
+    "peacock.affectSideBarBorder": false,
+    "peacock.affectSashHover": true,
+    "peacock.affectStatusAndTitleBorders": false,
+    "peacock.affectTabActiveBorder": false,
+    "peacock.affectTabActiveBackground": false,
     "editor.lineNumbers": "relative", // FOr Vim
     // Indent with two spaces, but only for R
     "editor.comments.ignoreemptylines": false,
@@ -223,6 +235,8 @@
         "<C-y>": false,
         "<C-o": true,
         "<C-p>": false,
+        "<C-c>": false,
+        "<C-v>": false,
     },
     "vim.insertModeKeyBindings": [
         {
@@ -2583,7 +2597,7 @@
         }
     },
     // "workbench.colorTheme": "Two Monokai",
-    "workbench.colorTheme": "c5e92ad9-2fa0-491e-b92a-48ab92d13597",
+    "workbench.colorTheme": "Two Monokai Darker",
     "notebook.lineNumbers": "on",
     "editor.lineHeight": 2,
     "console.fontSize": 16,
