@@ -1,0 +1,64 @@
+# This is Git's per-user configuration file.
+[core] 
+	editor = positron --wait
+[user]
+# Please adapt and uncomment the following lines:
+	name = cnsodano
+	email = cnsodano@gmail.com
+[color]
+    ui = auto
+    diff = always
+[init]
+    defaultbranch = main
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    restore-file = restore --worktree --stage
+    stgd = diff --name-only --cached
+    graph = log --branches --remotes --tags --graph --oneline --decorate --exclude=refs/stash
+    graph-a = log --all --graph --decorate --oneline
+    gr-a = log --all --graph --decorate --oneline
+    gr = log --branches --remotes --tags --graph --oneline --decorate --exclude=refs/stash
+    stash-keep = !git stash store $(git stash create)
+    notest = !git add -- . ':!report_output'
+    diff-last = diff HEAD~1 
+    # diff-file-last-commit = "!f() { \
+    #         project_root_dir=$(git rev-parse --show-toplevel); \
+    #         echo finding full file path of $1 in $project_root_dir; \
+    #         filepath=$(find $project_root_dir -type f -name $1); \
+    #         echo full file path $filepath; \
+    #         last_modified_commit_hash=$(git rev-list -1 HEAD $filepath); \
+    #         echo last commit file modified $last_modified_commit_hash; \
+    #         git difftool $last_modified_commit_hash^ $filepath; \
+    #    }; f"
+[diff "jupyternotebook"]
+	command = git-nbdiffdriver diff
+[merge "jupyternotebook"]
+	driver = git-nbmergedriver merge %O %A %B %L %P
+	name = jupyter notebook merge driver
+[difftool "nbdime"]
+	cmd = git-nbdifftool diff \"$LOCAL\" \"$REMOTE\" \"$BASE\"
+[difftool]
+	prompt = false
+[mergetool "nbdime"]
+	cmd = git-nbmergetool merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[mergetool]
+	prompt = false
+[color "diff"]
+	old = red
+	new = green
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	
+[diff]
+	tool = vscode
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+
+
